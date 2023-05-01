@@ -32,7 +32,7 @@ HostName login1.gbar.dtu.dk
 ```
 
 # How to extend terminal history
-open the file `~..Xresources` and change the `saveLines` to something like the shown
+open the file `~./Xresources` and change the `saveLines` to something like the shown
 ```
 # File : .Xresources
 !xrdb -merge ~/.Xrescources to generate new settings
