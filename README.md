@@ -60,6 +60,8 @@ Now everything should be setup. Then see the ```submit.sh``` shell script for ho
 
 `module avail`, you can e.g. use `module avail cuda` to list all cuda subversions available
 
+`getquota_zhome.sh` to see disk usage
+
 # Using VSCode remote to access the HPC
 Assuming you have you private key saved in `~/.ssh/gbar`
 
