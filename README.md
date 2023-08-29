@@ -52,6 +52,42 @@ bsub -n 4 < submit.sh
 
 Now everything should be setup. Then see the ```submit.sh``` shell script for how it is activated. It should be run from the same path as the project.
 
+# Using notebooks remotely
+
+terminal 1
+ssh s123456@login1.hpc.dtu.dk
+// assuming you have created a shh key similar to gbar1 below
+ssh hpc1
+<password>
+cd DLinCV/DL-COMVIS
+02514sh
+source ../DLCV/bin/activate
+jupyter notebook --no-browser --port=7800 --ip=$HOSTNAME
+
+
+terminal 2
+// change the port (7800) and node number (n-62-11-16) accordingly
+ssh s123456@login1.hpc.dtu.dk -g -L 7800:n-62-20-5:7800 -N
+// or if you have set up a hpc1 shortcut
+ssh hpc1 -g -L 7800:n-62-11-16:7800 -N
+
+<password>
+
+
+Datasæt mappe
+(fra home, virker åbenbart ikke med tmux)
+cd /dtu/datasets1/02514
+
+transfer file from local to remote
+scp s123456@login1.hpc.dtu.dk:/dtu/datasets1/02514/demo.ipynb .
+
+CUDA_VISIBLE_DEVICES=0,1
+
+// tensorboard
+ssh s123456@login1.hpc.dtu.dk -g -L 6006:n-62-20-6:6006 -N
+ssh hpc1 -g -L 6005:localhost:6005 -N
+
+
 # Other useful commands
 
 `watch -n 1 bstat` will continously monitor the job status
