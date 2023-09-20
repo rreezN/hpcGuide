@@ -55,6 +55,7 @@ Now everything should be setup. Then see the ```submit.sh``` shell script for ho
 # Using notebooks remotely
 
 terminal 1
+```
 ssh s123456@login1.hpc.dtu.dk
 // assuming you have created a shh key similar to gbar1 below
 ssh hpc1
@@ -63,30 +64,33 @@ cd DLinCV/DL-COMVIS
 02514sh
 source ../DLCV/bin/activate
 jupyter notebook --no-browser --port=7800 --ip=$HOSTNAME
-
+```
 
 terminal 2
+```
 // change the port (7800) and node number (n-62-11-16) accordingly
 ssh s123456@login1.hpc.dtu.dk -g -L 7800:n-62-20-5:7800 -N
 // or if you have set up a hpc1 shortcut
 ssh hpc1 -g -L 7800:n-62-11-16:7800 -N
-
+```
 <password>
 
 
-Datasæt mappe
-(fra home, virker åbenbart ikke med tmux)
-cd /dtu/datasets1/02514
-
 transfer file from local to remote
-scp s123456@login1.hpc.dtu.dk:/dtu/datasets1/02514/demo.ipynb .
+```scp s123456@login1.hpc.dtu.dk:/dtu/datasets1/02514/demo.ipynb . ``` syntax is ```scp file_a file_b```, see below for how to transfer folders
 
-CUDA_VISIBLE_DEVICES=0,1
+When running from interactive shell eg. ```a100sh```. To select a different gpu prefix python command with something like this
 
-// tensorboard
+```CUDA_VISIBLE_DEVICES=0,1 python train.py``` for both gpus
+```CUDA_VISIBLE_DEVICES=0 python train.py``` for both gpu 0.
+you can check which is occupied by doing ```nvidia-smi```
+
+
+use tensorboard remotely, such that you can open the window in your local browser
+```
 ssh s123456@login1.hpc.dtu.dk -g -L 6006:n-62-20-6:6006 -N
 ssh hpc1 -g -L 6005:localhost:6005 -N
-
+```
 
 # Other useful commands
 
