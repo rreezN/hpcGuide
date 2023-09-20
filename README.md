@@ -111,6 +111,17 @@ IdentityFile ~/.ssh/gbar
 HostName login1.gbar.dtu.dk
 ```
 
+# Copying folder and files with scp
+
+To copy all from Local Location to Remote Location (Upload)
+
+```scp -r /path/from/local username@hostname:/path/to/remote```
+if you have setup the gbar1 profile as above you can do
+```scp -r /path/from/local gbar1:/path/to/remote```
+To copy all from Remote Location to Local Location (Download)
+
+```scp -r username@hostname:/path/from/remote /path/to/local```
+
 # How to extend terminal history
 This is more necessary than you might think, for example calling the command `module avail` will give an output so long that you can scroll back far enough to see everything.
 
