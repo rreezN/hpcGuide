@@ -150,5 +150,4 @@ cd ~
 cd .local/share/Trash/info
 rm -rf *
 ```
-
-now run it with `./cleartrash.sh` from `~`
+remmeber to run `chmod +x cleartrash.sh` to make the file an executable. Now run it with `./cleartrash.sh` from `~`.
