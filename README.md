@@ -102,6 +102,13 @@ ssh hpc1 -g -L 6005:localhost:6005 -N
 
 `getquota_zhome.sh` to see disk usage
 
+`qstat -a 'gpu-name'` see all *RUNNING* and *WAITING* jobs on a gpu
+
+`bqueues -l 'gpu-name` job resource usage on specific GPUs (does not directly say which jobs are *RUNNING* or *WAITING*)
+
+`qstat -u 'user-name'` lookup on user-name, to see which gpus the user is running on
+
+
 # Using VSCode remote to access the HPC
 Assuming you have you private key saved in `~/.ssh/gbar`
 
