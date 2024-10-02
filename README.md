@@ -102,6 +102,8 @@ ssh hpc1 -g -L 6005:localhost:6005 -N
 
 `getquota_zhome.sh` to see disk usage
 
+`cd ~ && du -h --max-depth=1 .` to see current disk usage (prefered way as getquota only updates once every 240 minutes)
+
 `qstat -a 'gpu-name'` see all *RUNNING* and *WAITING* jobs on a gpu
 
 `bqueues -l 'gpu-name` job resource usage on specific GPUs (does not directly say which jobs are *RUNNING* or *WAITING*)
